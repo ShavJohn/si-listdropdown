@@ -1,6 +1,7 @@
 <template>
     <div>
-
+        <button @click="change">Click</button>
+        {{  someData  }}
     </div>
 </template>
 
@@ -8,6 +9,16 @@
     import { defineComponent } from "vue";
 
     export default defineComponent({
+        data() {
+            return {
+                someData: ''
+            }
+        },
+        methods: {
+            change() {
+                this.someData = 'Some news'
+            }
+        }
 
     })
 
