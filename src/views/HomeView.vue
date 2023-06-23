@@ -1,6 +1,6 @@
 <template>
     <div class="home-container">
-        <draggable v-model="dropDowns" tag="div" :group="dropDowns" item-key="id">
+        <draggable v-model="dropDowns" tag="div" :group="dropDowns" item-key="id" @end="saveDataToLocalStorage">
             <template #item="{ element: dropDwon }">
                 <customDropDown :isOpen="dropDwon.isOpen" :key="dropDwon.id">
                     <template #buttonContent>
@@ -126,6 +126,12 @@
                     });
                 }
                 
+            },
+            sortableOptions() {
+                return {
+                    handle: ".drag-handle",
+                    onEnd: this.saveDataToLocalStorage
+                };
             }
         },
         watch: {
@@ -133,7 +139,7 @@
                 this.disableAddDropDown = val > 11 ? true : false
                 
                 this.disableRemoveDropDown = val < 6 ? true : false 
-            }
+            },
         },
         methods: {
             refreshStorage(){
@@ -167,7 +173,11 @@
                     }
                 });
                 this.refreshStorage()
-            }
+            },
+            saveDataToLocalStorage() {
+                localStorage.setItem('dropDowns', JSON.stringify(this.dropDowns));
+            },
+
         },
         mounted() {
             if(!localStorage.getItem('dropDowns')) {
@@ -212,6 +222,7 @@
             else {
                 this.dropDowns = JSON.parse(localStorage.getItem('dropDowns')!)
             }
+
         }
 
     })
