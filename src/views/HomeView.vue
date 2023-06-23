@@ -13,9 +13,14 @@
                         <input type="text" placeholder="Search" v-model="searchQuery">
                     </template>
                     <template #menuItem>
-                        <template  v-for="country in filteredCountries">
+                        <template v-if="filteredCountries.length"  v-for="country in filteredCountries">
                             <li @click="dropDwon.text = country.text, refreshStorage(), dropDwon.isOpen = false" >
                                 {{  country.text  }}
+                            </li>
+                        </template>
+                        <template v-else>
+                            <li>
+                                No country found
                             </li>
                         </template>
                     </template>
@@ -127,7 +132,7 @@
             'dropDowns.length' : function (val) {
                 this.disableAddDropDown = val > 11 ? true : false
                 
-                this.disableRemoveDropDown = val < 3 ? true : false 
+                this.disableRemoveDropDown = val < 6 ? true : false 
             }
         },
         methods: {
