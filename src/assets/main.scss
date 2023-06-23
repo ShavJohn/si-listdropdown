@@ -8,3 +8,15 @@
 .home-container {
     padding: 30px;
 }
+
+.add-drop-down-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+
+    svg {
+        color: rgb(4, 226, 226);
+        margin-right: 20px;
+    }
+}

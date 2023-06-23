@@ -1,24 +1,22 @@
 <template>
-    <div class="drop-down-container" draggable="true">
-        <div class="drop-dwon-button-container">
-            <button class="drop-down-btn" @click="openDropDown = !openDropDown">
-                <slot name="buttonContent">
-
-                </slot>
-                <font-awesome-icon icon="fa-solid fa-chevron-down" />
-            </button>
-            <button class="delete-btn"><font-awesome-icon icon="fa-solid fa-xmark" /></button>
-        </div>
-        <div class="drop-down-manu-container" :class="openDropDown ? 'drop-down-open' : 'drop-down-close'">
-            <div class="drop-down-search-input">
-                <input type="text">
+    <div class="drop-down-container">
+        <font-awesome-icon class="drag-btn" icon="fa-solid fa-grip-vertical" />
+        <div class="drop-down-inner-container" draggable="true">
+            <div class="drop-dwon-button-container">
+                <slot name="buttonContent"></slot>
             </div>
-            <ul>
-                <li v-for="listItem in listItems">
-                    {{  listItem.value  }}
-                </li>
-            </ul>
+            <div class="drop-down-manu-container" :class="isOpen ? 'drop-down-open' : 'drop-down-close'">
+                <div class="drop-down-search-input">
+                    <input type="text">
+                </div>
+                <ul>
+                    <li v-for="listItem in listItems">
+                        {{  listItem.value  }}
+                    </li>
+                </ul>
+            </div>
         </div>
+        <slot name="deleteBtn"></slot>
     </div>
 </template>
 
@@ -26,9 +24,13 @@
     import { defineComponent } from "vue";
 
     export default defineComponent({
+        props: {
+            isOpen: {
+                required: true
+            }
+        },
         data() {
             return {
-                openDropDown: false,
                 listItems: [
                     {
                         key: 'id',
@@ -53,13 +55,18 @@
                     {
                         key: 'title',
                         value: 'Title'
+                    },
+                    {
+                        key: 'title',
+                        value: 'Title'
+                    },
+                    {
+                        key: 'title',
+                        value: 'Title'
                     }
                 ]
             }
         },
-        methods: {
-            
-        }
 
     })
 </script>

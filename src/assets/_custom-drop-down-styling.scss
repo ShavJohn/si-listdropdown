@@ -1,95 +1,120 @@
 .drop-down-container {
-    width: 300px;
-    position: relative;
-    margin-bottom: 20px;
+    transition: background-color 1s;
+    width: 350px;
+    padding: 20px;
 
-    .drop-dwon-button-container {
-        position: relative;
-        
-        .drop-down-btn {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 5px 20px;
-            height: 30px;
-            background-color: transparent;
-            border: 1px solid rgb(142, 142, 142);
-            cursor: pointer;
+    display: flex;
+    align-items: center;
 
-            svg {
-                position: absolute;
-                transform: translateY(-50%);
-                top: 50%;
-                right: 20px;
-                color: rgb(142, 142, 142);
-            }
+    &:hover {
+        background-color: #c9c9c9;
+        transition: background-color 1s;
+        .drag-btn {
+            transition: opacity 1s;
+            opacity: 1;
         }
+    }
 
-        .delete-btn {
-            background-color: transparent;
-            border: none;
-            transform: translateY(-50%);
-            top: 50%;
-            position: absolute;
-            cursor: pointer;
-            right: -20px;
-    
-            svg {
-                color: rgb(255, 54, 54);
-                font-size: 20px;
-            }
+    .drag-btn {
+        transition: opacity 1s;
+        opacity: 0;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+
+    .delete-btn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        margin-left: 20px;
+
+        svg {
+            color: rgb(255, 54, 54);
+            font-size: 20px;
         }
     }
 
 
-    .drop-down-close {
-        height: 0;
-
-    }
-
-    .drop-down-open {
-        max-height: 300px;
-    }
-
-    .drop-down-manu-container {
+    .drop-down-inner-container {
         width: 100%;
-        background-color: #373737;
-        position: absolute;
-        top: 98%;
-        overflow: hidden;
-        z-index: 99;
-
-        .drop-down-search-input {
-            display: flex;
-            justify-content: center;
-
-            input {
+        position: relative;
+    
+        .drop-dwon-button-container {
+            position: relative;
+            
+            .drop-down-btn {
                 width: 100%;
-                padding: 5px 15px;
-
-                &:focus-visible {
-                    outline: none;
-                }
-            
-            }
-        }
-
-        ul {
-            list-style: none;
-
-            li {
+                display: flex;
+                justify-content: space-between;
                 padding: 5px 20px;
-                transition: background-color 0.5s;
-                color: white;
-                
-                &:hover {
-                    cursor: pointer;
-                    transition: background-color 0.5s;
-                    background-color: rgb(173, 173, 173);
+                height: 30px;
+                background-color: white;
+                border: 1px solid rgb(142, 142, 142);
+                cursor: pointer;
+    
+                svg {
+                    position: absolute;
+                    transform: translateY(-50%);
+                    top: 50%;
+                    right: 20px;
+                    color: rgb(142, 142, 142);
                 }
             }
-            
         }
+    
+    
+        .drop-down-close {
+            height: 0;
+    
+        }
+    
+        .drop-down-open {
+            max-height: 300px;
+        }
+    
+        .drop-down-manu-container {
+            width: 100%;
+            background-color: #373737;
+            position: absolute;
+            top: 98%;
+            overflow: hidden;
+            z-index: 99;
+    
+            .drop-down-search-input {
+                display: flex;
+                justify-content: center;
+    
+                input {
+                    width: 100%;
+                    padding: 5px 15px;
+    
+                    &:focus-visible {
+                        outline: none;
+                    }
+                
+                }
+            }
+    
+            ul {
+                list-style: none;
+                max-height: 200px;
+                overflow: auto;
+    
+                li {
+                    padding: 5px 20px;
+                    transition: background-color 0.5s;
+                    color: white;
+                    
+                    &:hover {
+                        cursor: pointer;
+                        transition: background-color 0.5s;
+                        background-color: rgb(173, 173, 173);
+                    }
+                }
+                
+            }
+        }
+            
     }
-        
 }
+
