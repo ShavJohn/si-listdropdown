@@ -7,12 +7,10 @@
             </div>
             <div class="drop-down-manu-container" :class="isOpen ? 'drop-down-open' : 'drop-down-close'">
                 <div class="drop-down-search-input">
-                    <input type="text">
+                    <slot name="searchInput"></slot>
                 </div>
                 <ul>
-                    <li v-for="listItem in listItems">
-                        {{  listItem.value  }}
-                    </li>
+                    <slot name="menuItem"></slot>
                 </ul>
             </div>
         </div>
@@ -27,44 +25,6 @@
         props: {
             isOpen: {
                 required: true
-            }
-        },
-        data() {
-            return {
-                listItems: [
-                    {
-                        key: 'id',
-                        value: 'Id'
-                    },
-                    {
-                        key: 'title',
-                        value: 'Title'
-                    },
-                    {
-                        key: 'id',
-                        value: 'Id'
-                    },
-                    {
-                        key: 'title',
-                        value: 'Title'
-                    },
-                    {
-                        key: 'id',
-                        value: 'Id'
-                    },
-                    {
-                        key: 'title',
-                        value: 'Title'
-                    },
-                    {
-                        key: 'title',
-                        value: 'Title'
-                    },
-                    {
-                        key: 'title',
-                        value: 'Title'
-                    }
-                ]
             }
         },
 
