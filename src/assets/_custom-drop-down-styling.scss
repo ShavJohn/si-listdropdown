@@ -1,0 +1,95 @@
+.drop-down-container {
+    width: 300px;
+    position: relative;
+    margin-bottom: 20px;
+
+    .drop-dwon-button-container {
+        position: relative;
+        
+        .drop-down-btn {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 20px;
+            height: 30px;
+            background-color: transparent;
+            border: 1px solid rgb(142, 142, 142);
+            cursor: pointer;
+
+            svg {
+                position: absolute;
+                transform: translateY(-50%);
+                top: 50%;
+                right: 20px;
+                color: rgb(142, 142, 142);
+            }
+        }
+
+        .delete-btn {
+            background-color: transparent;
+            border: none;
+            transform: translateY(-50%);
+            top: 50%;
+            position: absolute;
+            cursor: pointer;
+            right: -20px;
+    
+            svg {
+                color: rgb(255, 54, 54);
+                font-size: 20px;
+            }
+        }
+    }
+
+
+    .drop-down-close {
+        height: 0;
+
+    }
+
+    .drop-down-open {
+        max-height: 300px;
+    }
+
+    .drop-down-manu-container {
+        width: 100%;
+        background-color: #373737;
+        position: absolute;
+        top: 98%;
+        overflow: hidden;
+        z-index: 99;
+
+        .drop-down-search-input {
+            display: flex;
+            justify-content: center;
+
+            input {
+                width: 100%;
+                padding: 5px 15px;
+
+                &:focus-visible {
+                    outline: none;
+                }
+            
+            }
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                padding: 5px 20px;
+                transition: background-color 0.5s;
+                color: white;
+                
+                &:hover {
+                    cursor: pointer;
+                    transition: background-color 0.5s;
+                    background-color: rgb(173, 173, 173);
+                }
+            }
+            
+        }
+    }
+        
+}
